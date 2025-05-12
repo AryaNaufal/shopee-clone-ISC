@@ -1,0 +1,186 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto, Helvetica Neue, Helvetica, Arial, Hiragino Sans GB, LiHei Pro, Heiti TC, Microsoft JhengHei UI, Microsoft JhengHei, sans-serif;
+}
+
+body {
+    background-color: #fef6f5;
+}
+
+.header {
+    background: linear-gradient(-180deg, #f53d2d, #f63);
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 10px 5%;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Header Top */
+
+.header-top nav {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    padding: 0 !important;
+}
+
+.nav-social {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12px;
+}
+
+.nav-social a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-social .social-item::after {
+    content: "|";
+    margin-left: 7px;
+}
+
+.follow-us {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.follow-us a .fa-brands {
+    font-size: 15px;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    list-style: none;
+}
+
+.navbar-links li div {
+    display: flex;
+    gap: 10px;
+}
+
+/* Header Main */
+
+.header-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* gap: 50px; */
+    margin-top: 20px;
+}
+
+.header-main .logo svg {
+    height: 50px;
+    width: 162px;
+}
+
+.header-main .burger-menu {
+    display: none;
+}
+
+.header-main .search {
+    display: flex;
+    width: 70%;
+    overflow-x: hidden;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 15px;
+}
+
+.header-main .search form {
+    width: 100%;
+}
+
+.search-bar {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 10px;
+    background-color: white;
+    padding: 5px;
+    border-radius: 3px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar button {
+    border: none;
+    background-color: #ee4d2d;
+    padding: 10px 20px;
+    border-radius: 3px;
+    color: white;
+}
+
+.search-bar-input {
+    width: -webkit-fill-available;
+}
+
+.search-bar input,
+.search-bar input:focus {
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: 15px;
+    width: -webkit-fill-available;
+}
+
+.sugestion ul {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    list-style: none;
+    font-size: 12px;
+}
+
+.sugestion ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+.cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+}
+
+/* Responsive */
+
+@media screen and (max-width: 600px) {
+    .header-top nav {
+        display: none;
+    }
+
+    .header-main {
+        margin: 0;
+    }
+
+    .header-main .search,
+    .header-main .cart {
+        display: none;
+    }
+
+    .header-main .burger-menu {
+        display: block;
+    }
+}
+
+
+@media screen and (max-width: 1024px) {
+    .header-main .logo svg {
+        height: 30px;
+        width: 100px;
+    }
+}

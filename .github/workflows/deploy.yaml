@@ -1,0 +1,55 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Deploy to VPS using Password
+        run: |
+          echo "Deploying to VPS..."
+          echo "$VPS_PASSWORD" | sshpass ssh -o StrictHostKeyChecking=no $VPS_USER@$VPS_HOST "echo 'Deployment successful'"
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+          VPS_PASSWORD: ${{ secrets.VPS_PASSWORD }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Git pull in VPS folder
+        run: |
+          echo "Pulling latest code from Git repository"
+          echo "$VPS_PASSWORD" | sshpass ssh -o StrictHostKeyChecking=no $VPS_USER@$VPS_HOST "
+            cd /var/www/html/shopee-clone-ISC && git pull
+          "
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+          VPS_PASSWORD: ${{ secrets.VPS_PASSWORD }}
+
+      - name: Restart Nginx service
+        run: |
+          echo "Restarting Nginx on VPS"
+          echo "$VPS_PASSWORD" | sshpass ssh -o StrictHostKeyChecking=no $VPS_USER@$VPS_HOST "
+            sudo systemctl restart nginx
+          "
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+          VPS_PASSWORD: ${{ secrets.VPS_PASSWORD }}
