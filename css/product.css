@@ -1,0 +1,107 @@
+.produk-shopee {
+  background: #fff;
+  padding: 16px;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.produk-shopee h2 {
+  text-align: center;
+  color: #e74c3c;
+  border-bottom: 2px solid #e74c3c;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.product-card {
+  background: #fff;
+  border: 1px solid #eee;
+
+  padding: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.image-wrapper {
+  position: relative;
+}
+
+.image-wrapper img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.badge-discount {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: red;
+  color: white;
+  font-size: 12px;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+.badge-top-left {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  background: orange;
+  color: white;
+  font-size: 12px;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+.badge-bottom-left {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  background: #ff4444;
+  color: white;
+  font-size: 12px;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+/* .product-title {
+  font-size: 13px;
+  margin-top: 6px;
+  height: 2.8em;
+  overflow: hidden;
+  line-height: 1.4em;
+}
+
+.product-price {
+  color: red;
+  font-weight: bold;
+  font-size: 14px;
+  margin: 6px 0 2px;
+} */
+
+.product-title {
+  margin-top: 15px;
+}
+
+.product-detail {
+  margin-top: 100px;
+  color: red;
+  font-weight: bold;
+  font-size: 14px;
+  margin: 6px 0 2px;
+  display: flex;
+  justify-content: space-between; /* atau gap jika tidak ingin full width */
+  align-items: center;
+}
+
+.product-sold {
+  font-size: 12px;
+  color: #888;
+}
